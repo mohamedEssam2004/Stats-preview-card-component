@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import 'variables';
+@import 'mixin';
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+body {
+    font-size: $fontSize;
+    background-color: $veryDarkBlue;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
+    background: $veryDarkBlue;
+}
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 3rem;
+}
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px 20px;
+    text-align: center;
+
+    @include breakPointsUp(medium){
+        flex-direction: row;
+        padding: 160px 250px;
+    }
+
+    &__image {
+
+        @include breakPointsUp(medium){
+            order: 1;
+        }
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: calc(100% - 3px);
+            background-color:hsla(277, 75%, 29%, 0.541);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        img.mob-img {
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            @include breakPointsUp(medium){
+                display: none;
+            }
+        }
+        img.des-img {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            height: 400px;
+            @include breakPointsDown(small){
+                display: none;
+            }
+        }
+    }
+
+    &__content {
+        @include breakPointsUp(medium){
+            text-align: left;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 0px;
+            border-top-left-radius: 5px;
+            padding-top: 60px;
+            padding-left: 60px;
+            padding-bottom: 30px;
+            padding-right: 0;
+        }
+        margin-top: -4px;
+        width: 100%;
+        background-color: $darkDesaturated;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        h1 {
+            @include breakPointsUp(medium){
+                margin: 0 0;
+                width: 380px;
+                padding-top: 0px;
+                line-height: 3.5rem;
+                font-size: 3.6rem;
+            }
+            padding-top: 40px;
+            font-size: 2.6rem;
+            width: 250px;
+            color: $white;
+            margin: 0 auto;
+
+            span {
+                color: $softViolet;
+            }
+        }
+        
+        p {
+            @include breakPointsUp(medium){
+                margin: 0 0;
+                width: 340px;
+                padding-bottom: 4rem;
+                padding-top: 3rem;
+            }
+            width: 240px;
+            font-size: 13px;
+            line-height: 20px;
+            color: $slightlyTransparentWhite;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+    }
+
+    .stat {
+        @include breakPointsUp(medium){
+            display: flex;
+            align-items: center;
+            padding-top: 2.5rem;
+        }
+        font-family: 'Inter', sans-serif;
+        padding-top: 30px;
+        padding-bottom: 40px;
+        .box {
+            &:not(:first-child) {
+                @include breakPointsUp(medium){
+                    padding-top: 0rem;
+                }
+                padding-top: 2.5rem;
+            }
+
+            span {
+                display: block;
+                text-transform: uppercase;
+
+                &:first-child{
+                    @include breakPointsUp(medium){
+                        margin-left: 0rem;
+                    }
+                    color: $white;
+                    font-size: 2.2rem;
+                    font-weight: 700;
+                    padding-right: 90px;
+                    margin-left: 9rem;
+                }
+                &:last-child{
+                    @include breakPointsUp(medium){
+                        margin-top: .5rem;
+                    }
+                    color: $slightlyTransparentWhite;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    margin-top: .5rem;
+                }
+            }
+        }
+    }
+}
+
